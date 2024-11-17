@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark_08:"#141414";
+  --dark_10:"#1A1A1A";
+  --dark_15:"#262626";
+  --darK_25:"#404040";
+  --grey_60:"#98989A";
+  --yellow:"#FFD11A";
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: theme("colors.dark_08");
+}
+
+/* scroll bar */
+
+::-webkit-scrollbar {
+  width: thin;
+  /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: theme("colors.dark_08");
+  /* Color of the track (part the scrollbar moves within) */
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme("colors.yellow");
+  /* Color of the scrollbar thumb (the draggable part) */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme("colors.dark_08");
+  /* Color when hovering over the scrollbar thumb */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thin;
+  /* Options: auto, thin, or none */
+  scrollbar-color: theme("colors.yellow") theme("colors.dark_08");
+  /* scrollbar-thumb scrollbar-track */
+}
+
+/* For Internet Explorer */
+.scrollable {
+  -ms-overflow-style: scrollbar;
+  /* Controls the appearance of scrollbars */
+}
+
+.scrollable::-ms-scrollbar {
+  width: thin;
+}
+
+.scrollable::-ms-scrollbar-track {
+  background: theme("colors.dark_08");
+}
+
+.scrollable::-ms-scrollbar-thumb {
+  background: theme("colors.dark_25");
+}
+
+.scrollable::-ms-scrollbar-thumb:hover {
+  background: theme("colors.dark_08");
+}
+
+/* IE */
+.scrollable {
+  -ms-overflow-style: scrollbar;
+}
+
+/* end scroll bar */

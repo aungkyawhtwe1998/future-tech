@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-kumbh: 'Kumbh Sans', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --min-vw: 640;
+  --max-vw: 1920;
+  --min-vw-px: calc(var(--min-vw) * 1px);
+  --max-vw-px: calc(var(--max-vw) * 1px);
+  --text-70: 70;
+  --text-h1: 58;
+  --text-h2: 40;
+  --text-h3: 36;
+  --text-40: 40;
+  --text-h4: 24;
+  --text-h5: 22;
+  --text-h6: 22;
+  --text-title: 20;
+  --text-body-1: 18;
+  --text-body-2: 16;
+  --text-base: 14;
+  --text-base-min: 12;
+
+  --text-h1-min: calc(var(--text-h1) * 0.47);
+  --text-70-min: calc(var(--text-70) * 0.5);
+  --text-h2-min: calc(var(--text-h2) * 0.6);
+  --text-h3-min: calc(var(--text-h3) * 0.63);
+  --text-40-min: calc(var(--text-40) * 0.75);
+  --text-h4-min: calc(var(--text-h4) * 0.6);
+  --text-h5-min: calc(var(--text-h5) * 0.82);
+  --text-h6-min: calc(var(--text-h6) * 0.7);
+  --text-title-min: calc(var(--text-title) * 0.7);
+  --text-body-1-min: calc(var(--text-body-1) * 0.8);
+  --text-body-2-min: calc(var(--text-body-2) * 0.9);
+  --text-body-3-min: calc(var(--text-body-3) * 0.75);
+  --text-base-min: calc(var(--text-base) * 0.9);
+}
+
+body {
+  @apply font-inter;
+}
+
+.font-kumbh {
+  font-family: var(--font-kumbh);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+
+@layer components {
+  .fluid-fs {
+    --max-fs: var(--text-base);
+    --min-fs: var(--text-base-min); /* This now refers to 12px */
+    --slope: calc((var(--max-fs) - var(--min-fs)) / (var(--max-vw) - var(--min-vw)));
+    --min-fs-px: calc(var(--min-fs) * 1px);
+    --max-fs-px: calc(var(--max-fs) * 1px);
+    --fs-px: calc(var(--slope) * (100vw - var(--min-vw-px)) + var(--min-fs-px));
+    font-size: clamp(var(--min-fs-px), var(--fs-px), var(--max-fs-px));
+  }
+
+  .heading1 {
+    @apply fluid-fs font-kumbh;
+    font-weight: 700;
+    --max-fs: var(--text-h1);
+    --min-fs: var(--text-h1-min);
+    line-height: normal;
+  }
+
+  .heading70 {
+    @apply fluid-fs font-kumbh;
+    font-weight: 700;
+    --max-fs: var(--text-70);
+    --min-fs: var(--text-70-min);
+    line-height: normal;
+  }
+
+  .heading40 {
+    @apply fluid-fs font-kumbh;
+    font-weight: 700;
+    --max-fs: var(--text-40);
+    --min-fs: var(--text-40-min);
+    line-height: normal;
+  }
+
+  .heading2 {
+    @apply fluid-fs font-kumbh;
+    font-weight: 700;
+    --max-fs: var(--text-h2);
+    --min-fs: var(--text-h2-min);
+    line-height: normal;
+  }
+
+  .heading3 {
+    @apply fluid-fs font-kumbh;
+    font-weight: 700;
+    --max-fs: var(--text-h3);
+    --min-fs: var(--text-h3-min);
+    line-height: 1.25;
+  }
+
+  .heading4 {
+    @apply fluid-fs font-kumbh;
+    font-weight: 700;
+    --max-fs: var(--text-h4);
+    --min-fs: var(--text-h4-min);
+    line-height: 1.25;
+  }
+
+  .heading5 {
+    @apply fluid-fs font-kumbh;
+    font-weight: 700;
+    --max-fs: var(--text-h5);
+    --min-fs: var(--text-h5-min);
+    line-height: normal;
+  }
+
+  .heading6 {
+    @apply fluid-fs font-kumbh;
+    font-weight: 700;
+    --max-fs: var(--text-h6);
+    --min-fs: var(--text-h6-min);
+    line-height: normal;
+  }
+
+  .text-title {
+    @apply fluid-fs font-kumbh;
+    font-weight: 700;
+    --max-fs: var(--text-title);
+    --min-fs: var(--text-title-min);
+    line-height: normal;
+  }
+
+  .text-body-1 {
+    @apply fluid-fs font-inter;
+    font-weight: 400;
+    --max-fs: var(--text-body-1);
+    --min-fs: var(--text-body-1-min);
+    line-height: normal;
+    font-family: var(--font-poppins);
+  }
+
+
+  .text-body-2 {
+    @apply fluid-fs font-inter;
+    font-weight: 400;
+    --max-fs: var(--text-body-2);
+    --min-fs: var(--text-body-2-min);
+    line-height: normal;
+  }
+
+  .text-body-3 {
+    @apply fluid-fs font-inter;
+    font-weight: 400;
+    --max-fs: var(--text-body-3);
+    --min-fs: var(--text-body-3-min);
+    line-height: normal;
+  }
+
+  .text-base {
+    @apply fluid-fs font-inter;
+    font-weight: 400;
+    --max-fs: var(--text-base);
+    --min-fs: var(--text-base-min);
+    line-height: normal;
+  }
+
+  .content-wrapper {
+    @apply space-y-4 text-grey;
+  }
+  
+  .content-wrapper p {
+    @apply text-body-2;
+  }
+  
+  .content-wrapper span {
+    @apply text-body-2;
+  }
+  
+  .content-wrapper h6 {
+    @apply heading6;
+  }
+  
+  .content-wrapper h5 {
+    @apply heading5;
+  }
+  
+  .content-wrapper h4 {
+    @apply heading4;
+  }
+  
+  .content-wrapper h3 {
+    @apply heading3;
+  }
+  
+  .content-wrapper h2 {
+    @apply heading2;
+  }
+  
+  .content-wrapper h1 {
+    @apply heading1;
+  }
+  
+  .content-wrapper ul{
+    @apply ps-5 list-disc;
+  }
+  
+  .content-wrapper ol{
+    @apply ps-5 list-decimal;
+  }
+}
+

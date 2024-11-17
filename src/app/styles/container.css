@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --min-vw: 640;
+  --max-vw: 1920;
+  --min-p: 20;
+  --max-p: 162;
+
+  --min-vw-px: calc(var(--min-vw) * 1px);
+  --max-vw-px: calc(var(--max-vw) * 1px);
+}
+
+.container-base {
+  --slope: calc((var(--max-p) - var(--min-p)) / (var(--max-vw) - var(--min-vw)));
+  --min-p-px: calc(var(--min-p) * 1px);
+  --max-p-px: calc(var(--max-p) * 1px);
+  --p-px: calc(var(--slope) * (100vw - var(--min-vw-px)) + var(--min-p-px));
+  --p: clamp(var(--min-p-px), var(--p-px), var(--max-p-px));
+}
+
+.container {
+  @apply container-base;
+  max-width: var(--max-vw-px);
+  padding: 0 var(--p);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-left {
+  @apply container-base;
+  max-width: var(--max-vw-px);
+  padding: 0 var(--p);
+  padding-right: 0px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-right {
+  @apply container-base;
+  max-width: var(--max-vw-px);
+  padding: 0 var(--p);
+  padding-left: 0px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@layer utilities {
+  .container-md {
+    --max-p: 162; 
+    max-width: 1920px; 
+    width: 100%;
+  }
+
+  .container-sm {
+    --max-p: 162; 
+    max-width: 1920px; 
+    width: 100%; 
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .container-md,
+  .container-sm {
+    max-width: 1920px;
+    width: 100%; 
+  }
+  .container-sm {
+    --max-p: 280; 
+    max-width: 1920px; 
+    width: 100%; 
+  }
+}
